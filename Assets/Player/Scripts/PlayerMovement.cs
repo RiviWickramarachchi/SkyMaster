@@ -6,12 +6,14 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
     private Rigidbody2D rb;
+    private Animator playerAnim;
     private float gravity;
     
     // Start is called before the first frame update
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
+        playerAnim = this.GetComponent<Animator>();
         gravity = rb.gravityScale;
         rb.velocity = new Vector2(speed, 0);
     }
@@ -43,8 +45,17 @@ public class PlayerMovement : MonoBehaviour
     }
 
     
-    private void OnTriggerEnter2D(Collider2D collision)
+   
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Dead");
+        print("DEAD");
+        playerAnim.Play("explosion");
+
+    }
+
+    private void playerDeath()
+    {
+        Destroy(this.gameObject);
     }
 }
