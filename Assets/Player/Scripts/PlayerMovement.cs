@@ -57,6 +57,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void playerDeath()
     {
-        Destroy(this.gameObject);
+        this.gameObject.SetActive(false);
+        //Destroy(this.gameObject);
+        //transition to game over screen
+        GUIManager.GetInstance.showGameOverScreen();
+        
     }
 }

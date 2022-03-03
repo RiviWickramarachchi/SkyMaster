@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PlayerInst : MonoBehaviour
 {
-    public static PlayerInst instance;
+    private static PlayerInst instance;
+
+    public static PlayerInst GetInstance { get => instance; }
 
     private void Awake()
     {

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-    public static ScoreManager instance;
+    private static ScoreManager instance;
 
     [SerializeField] private Text scoreText;
     [SerializeField] private Text highScoreText;
@@ -14,6 +14,9 @@ public class ScoreManager : MonoBehaviour
    
 
     int score = 0;
+
+    public static ScoreManager GetInstance { get => instance;}
+
     private void Awake()
     {
         instance = this;

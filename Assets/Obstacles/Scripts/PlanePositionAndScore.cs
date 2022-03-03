@@ -11,11 +11,11 @@ public class PlanePositionAndScore : MonoBehaviour
         if(obstaclePassed == false)
         {
             float obstacleXPos = this.gameObject.transform.position.x;
-            float playerXPos = PlayerInst.instance.getPlayerXPosition();
+            float playerXPos = PlayerInst.GetInstance.getPlayerXPosition();
 
             if(playerXPos > obstacleXPos)
             {
-                ScoreManager.instance.addPoint();
+                ScoreManager.GetInstance.addPoint();
                 obstaclePassed = true;
             }
         }
